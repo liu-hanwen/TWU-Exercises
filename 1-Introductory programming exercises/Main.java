@@ -1,4 +1,4 @@
-import Func;
+// import Func;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,5 +8,9 @@ public class Main {
         System.out.println(Func.draw_a_horizontal_line(8));
         System.out.println("3. Output:");
         System.out.println(Func.draw_a_vertical_line(3));
+        System.out.println("4. Output:");
+        System.out.println(Func.draw_a_right_triangle(3));
+        System.out.println("5. Output:");
+        System.out.println(Func.isosceles_triangle(3));
     }
 }
