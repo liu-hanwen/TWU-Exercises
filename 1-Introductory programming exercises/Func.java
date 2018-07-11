@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Func{
     public static String print_one_asterisk(){
         String ret = "*";
@@ -86,6 +89,30 @@ public class Func{
             else if (i%5==0){ret+=buzz;}
             else{ret+=String.format("%d", i);}
             ret+="\n";
+        }
+        return ret;
+    }
+
+    private static boolean isPrime(int n){
+        if(n==2){return true;}
+
+        for(int i = 2; i<n; i+=1){
+            if(Func.isFactor(n, i)){return false;}
+        }
+        return true;
+    }
+
+    private static boolean isFactor(int big, int small){
+        if(big%small==0){return true;}
+        return false;
+    }
+
+    public static List<Integer> getPrimeFactors(int n){
+        List<Integer> ret = new ArrayList<Integer>();
+        for(int i =2; i<n; i+=1){
+            if(Func.isPrime(i) && Func.isFactor(n, i)){
+                ret.add(i);
+            }
         }
         return ret;
     }
