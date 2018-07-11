@@ -31,18 +31,48 @@ public class Func{
         return ret;
     };
 
+    private static String draw_line(int n, String ch){
+        String ret = "";
+        for(int i =0; i<n ; i+=1){
+            ret += ch;
+        }
+        return ret;
+    }
+
+    private static String fill_space(int width, String ori){
+        String ret = "";
+        int l = ori.length();
+        int space_volumn = (width - l) / 2;
+        ret+=draw_line(space_volumn, " ");
+        ret+=ori;
+        return ret;
+    }
+
     public static String isosceles_triangle(int n){
         String ret = "";
-        int width = (n-1)*2+1;
+        int width = 2 * n -1;
         for(int layer=0; layer<n; layer+=1){
-            int fill_width = layer*2+1;
-            int space_width = (width - fill_width) / 2;
-            for(int n_space = 0; n_space<space_width; n_space+=1){
-                ret = ret.concat(" ");
-            }
-            ret = ret.concat(Func.draw_a_horizontal_line(fill_width));
-            ret = ret.concat("\n");
+            ret+=Func.fill_space(width,Func.draw_line(layer*2+1, "*"));
+            ret+="\n";
         }
         return ret;
     };
+
+    public static String dimond(int n){
+        String ret = Func.isosceles_triangle(n);
+        int width = 2 * n - 1;
+        for(int layer=n-2; layer>=0; layer-=1){
+            ret+=Func.fill_space(width, Func.draw_line(layer*2+1, "*"));
+            ret+="\n";
+        }
+        return ret;
+        
+    }
+
+    public static String dimond_with_name(String name, int n){
+        String ret = Func.dimond(n);
+        String target = Func.draw_line(2 * n -1, "\\*");
+        String substitute = Func.fill_space(2 * n - 1, name);
+        return ret.replaceFirst(target, substitute);
+    }
 }

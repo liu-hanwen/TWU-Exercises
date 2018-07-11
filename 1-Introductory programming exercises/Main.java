@@ -12,5 +12,9 @@ public class Main {
         System.out.println(Func.draw_a_right_triangle(3));
         System.out.println("5. Output:");
         System.out.println(Func.isosceles_triangle(3));
+        System.out.println("6. Output:");
+        System.out.println(Func.dimond(3));
+        System.out.println("7. Output:");
+        System.out.println(Func.dimond_with_name("Bill", 3));
     }
 }
