@@ -16,5 +16,8 @@ public class Main {
         System.out.println(Func.dimond(3));
         System.out.println("7. Output:");
         System.out.println(Func.dimond_with_name("Bill", 3));
+        System.out.println("8. Output:");
+        System.out.println(Func.FizzBuzz(1, 100));
+
     }
 }

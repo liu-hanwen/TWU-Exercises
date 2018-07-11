@@ -75,4 +75,18 @@ public class Func{
         String substitute = Func.fill_space(2 * n - 1, name);
         return ret.replaceFirst(target, substitute);
     }
+
+    public static String FizzBuzz(int begin, int end){
+        String fizz = "Fizz";
+        String buzz = "Buzz";
+        String ret = "";
+        for(int i =begin; i<=end; i+=1){
+            if(i%15==0){ret+=fizz; ret+=buzz;}
+            else if (i%3==0){ret+=fizz;}
+            else if (i%5==0){ret+=buzz;}
+            else{ret+=String.format("%d", i);}
+            ret+="\n";
+        }
+        return ret;
+    }
 }
