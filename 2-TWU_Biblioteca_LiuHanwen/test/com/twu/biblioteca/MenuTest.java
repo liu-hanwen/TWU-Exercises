@@ -1,0 +1,40 @@
+package com.twu.biblioteca;
+
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class MenuTest {
+
+    @Test
+    public void test() {
+        assertEquals(1, 1);
+    }
+
+    @Test
+    public void optionsShowTest(){
+        BooksMenu.getInstance().setBookList(new BookList());
+        assertEquals("1.List all books.\n2.Quit.\n", HomeMenu.getInstance().showOptions());
+        assertEquals("1.Check out a book.\n2.Back to home.\n3.Quit.\n", BooksMenu.getInstance().showOptions());
+    }
+
+    @Test
+    public void jumpTest(){
+        assertEquals(BooksMenu.getInstance(), HomeMenu.getInstance().doAction("1")); //home -> booksmenu
+        assertEquals(HomeMenu.getInstance(), BooksMenu.getInstance().doAction("2").doAction("y")); //booksmenu -redirect-> home
+    }
+
+    @Test
+    public void quitTest(){
+        assertEquals(QuitOption.getInstance(),BooksMenu.getInstance().doAction("3"));
+    }
+
+    @Test
+    public void invaildInputTest(){
+        assertEquals(HomeMenu.getInstance(), HomeMenu.getInstance().doAction("???"));
+        assertEquals(BooksMenu.getInstance(), BooksMenu.getInstance().doAction("???"));
+    }
+
+
+}
