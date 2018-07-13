@@ -3,6 +3,7 @@ package com.twu.biblioteca.Menu.SubMenu;
 import com.twu.biblioteca.Book;
 import com.twu.biblioteca.BookList;
 import com.twu.biblioteca.Menu.BaseMenu;
+import com.twu.biblioteca.User;
 import com.twu.biblioteca.Utils;
 
 import java.awt.*;
@@ -33,6 +34,24 @@ public class CheckMenu extends BaseMenu{
 
     @Override
     public BaseMenu doAction(String input) {
+
+        String[] inputSplited = input.split("/");
+        if(inputSplited.length!=3){
+            System.out.println(Utils.INVAILD_ERROR);
+            return me;
+        }
+
+        String book_name = inputSplited[0];
+        String username = inputSplited[1];
+        String password = inputSplited[2];
+
+        User checker = Utils.checkUser(username, password);
+
+        if(checker==null){
+            System.out.println(Utils.USERNAME_OR_PASSWORD_ERROR);
+            return me;
+        }
+
         try{
             int choice = Integer.parseInt(input);
             List<Book> ava = BooksMenu.getInstance().getBooklist().getAvaList();
