@@ -1,25 +1,36 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.Menu.SubMenu;
 
+import com.twu.biblioteca.BackToHome;
+import com.twu.biblioteca.BookList;
+import com.twu.biblioteca.Menu.BaseMenu;
+import com.twu.biblioteca.Menu.Option.BaseOption;
+import com.twu.biblioteca.Menu.Option.QuitOption;
+import com.twu.biblioteca.Utils;
+
+import javax.rmi.CORBA.Util;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Created by franklau on 2018/7/11.
  */
-public class BooksMenu extends Menu{
+public class BooksMenu extends BaseMenu {
     private static BooksMenu me;
     private BookList booklist;
 
     private BooksMenu(){
-        this.name = "List all books.";
-        this.options = new ArrayList<Menu>();
-        this.options.add(new Options("Check out a book."));
-        this.options.add(new BackToHome("BooksMenu"));
+        this.name = Utils.BOOKSMENU_NAME;
+        this.options = new ArrayList<BaseMenu>();
+        this.options.add(CheckMenu.getInstance());
+        this.options.add(new BackToHome(Utils.BOOKSMENU_NAME));
         this.options.add(QuitOption.getInstance());
     }
 
     public void setBookList(BookList booklist){
         this.booklist = booklist;
+    }
+
+    public BookList getBooklist() {
+        return booklist;
     }
 
     public static BooksMenu getInstance(){
@@ -38,7 +49,7 @@ public class BooksMenu extends Menu{
     }
 
     @Override
-    public Menu doAction(String input) {
+    public BaseMenu doAction(String input) {
         try{
             int choice = Integer.parseInt(input);
             if(choice-1<0 || choice-1>options.size()){
@@ -47,7 +58,7 @@ public class BooksMenu extends Menu{
             return options.get(choice-1);
         }
         catch(Exception e){
-            System.out.println("Error: Select a valid option!");
+            System.out.println(Utils.INVAILD_ERROR);
             return me;
         }
     }

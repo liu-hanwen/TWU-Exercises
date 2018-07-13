@@ -1,9 +1,11 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.Menu.Option;
+
+import com.twu.biblioteca.Menu.BaseMenu;
 
 /**
  * Created by franklau on 2018/7/12.
  */
-public class QuitOption extends Options{
+public class QuitOption extends BaseOption {
 
     private static QuitOption me;
 
@@ -24,7 +26,7 @@ public class QuitOption extends Options{
     }
 
     @Override
-    public Menu doAction(String input) {
+    public BaseMenu doAction(String input) {
         return null;
     }
 }

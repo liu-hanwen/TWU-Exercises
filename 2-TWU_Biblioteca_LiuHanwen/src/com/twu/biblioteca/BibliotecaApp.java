@@ -7,7 +7,7 @@ public class BibliotecaApp {
     }
 
     public static String sayWelcome(){
-        return "Welcome to use Biblioteca!";
+        return Utils.WELCOME;
     }
 
 

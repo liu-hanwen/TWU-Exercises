@@ -1,6 +1,9 @@
 package com.twu.biblioteca;
 
 
+import com.twu.biblioteca.Menu.SubMenu.BooksMenu;
+import com.twu.biblioteca.Menu.SubMenu.HomeMenu;
+import com.twu.biblioteca.Menu.Option.QuitOption;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

@@ -1,13 +1,14 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.Menu;
 
-import java.util.ArrayList;
+import com.twu.biblioteca.Utils;
+
 import java.util.List;
 
 /**
  * Created by franklau on 2018/7/11.
  */
-public abstract class Menu {
-    protected List<Menu> options;
+public abstract class BaseMenu {
+    protected List<BaseMenu> options;
     protected String name;
 
     public String getName(){
@@ -20,11 +21,11 @@ public abstract class Menu {
         int nOption = this.options.size();
         String ret = "";
         for(int i=0; i<nOption; i+=1){
-            ret+=String.format("%d.%s\n", i+1, options.get(i).getName());
+            ret+=String.format(Utils.ROW_FORMAT, i+1, options.get(i).getName());
         }
         return ret;
     }
 
-    public abstract Menu doAction(String input);
+    public abstract BaseMenu doAction(String input);
 
 }
