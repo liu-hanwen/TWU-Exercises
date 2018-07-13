@@ -21,6 +21,7 @@ public class BooksMenu extends BaseMenu {
         this.name = Utils.BOOKSMENU_NAME;
         this.options = new ArrayList<BaseMenu>();
         this.options.add(CheckMenu.getInstance());
+        this.options.add(ReturnMenu.getInstance());
         this.options.add(new BackToHome(Utils.BOOKSMENU_NAME));
         this.options.add(QuitOption.getInstance());
     }
