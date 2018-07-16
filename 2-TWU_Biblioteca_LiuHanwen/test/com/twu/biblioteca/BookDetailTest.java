@@ -17,9 +17,9 @@ public class BookDetailTest {
     public void checkoutTest(){
         Book book = new Book("How to do TDD?", "ThoughtWorks University", "2018");
         assertEquals(true, book.ifAvaliable());
-        book.checkout();
+        book.checkout(new User("1", "1"));
         assertEquals(false, book.ifAvaliable());
-        assertEquals(false, book.checkout());
+        assertEquals(false, book.checkout(new User("2", "2")));
     }
 
 }

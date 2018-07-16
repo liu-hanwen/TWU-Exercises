@@ -33,6 +33,7 @@ public class MovieList {
     public boolean returnFromList(String name, User user){
         for(Movie mov: out_movies){
             if (mov.getInfo().get("name").compareTo(name)==0 && mov.return_(user)){
+                ava_movies.add(mov);
                 return true;
             }
         }
@@ -40,10 +41,16 @@ public class MovieList {
     }
 
     public String show(){
+
+        if(ava_movies.size()==0){
+            return Utils.NO_BOOK_WARNING.replaceAll("book", "movie");
+        }
+
         String ret = "";
         for(int i = 0; i<ava_movies.size(); i+=1){
-            ret+=String.format(Utils.ROW_FORMAT, i+1, ava_movies.get(i));
+            ret+=String.format(Utils.ROW_FORMAT, i+1, ava_movies.get(i).show());
         }
+
         return ret;
     }
 

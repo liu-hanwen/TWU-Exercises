@@ -1,48 +1,46 @@
 package com.twu.biblioteca.Menu.SubMenu;
 
-import com.twu.biblioteca.BackToHome;
-import com.twu.biblioteca.BookList;
+import com.twu.biblioteca.*;
 import com.twu.biblioteca.Menu.BaseMenu;
 import com.twu.biblioteca.Menu.Option.QuitOption;
-import com.twu.biblioteca.Utils;
 
 import java.util.ArrayList;
 
 /**
- * Created by franklau on 2018/7/11.
+ * Created by franklau on 2018/7/16.
  */
-public class BooksMenu extends BaseMenu {
-    private static BooksMenu me;
-    private BookList booklist;
+public class MoviesMenu extends BaseMenu{
+    private static MoviesMenu me;
+    private MovieList movieList;
 
-    private BooksMenu(){
-        this.name = Utils.BOOKSMENU_NAME;
+    private MoviesMenu(){
+        this.name = Utils.MOVIESMENU_NAME;
         this.options = new ArrayList<BaseMenu>();
-        this.options.add(BooksCheckMenu.getInstance());
-        this.options.add(BooksReturnMenu.getInstance());
-        this.options.add(new BackToHome(Utils.BOOKSMENU_NAME));
+        this.options.add(MoviesCheckMenu.getInstance());
+        this.options.add(MoviesReturnMenu.getInstance());
+        this.options.add(new BackToHome(Utils.MOVIESMENU_NAME));
         this.options.add(QuitOption.getInstance());
     }
 
-    public void setBookList(BookList booklist){
-        this.booklist = booklist;
+    public void setMovieList(MovieList movieList){
+        this.movieList = movieList;
     }
 
-    public BookList getBooklist() {
-        return booklist;
+    public MovieList getMovielist() {
+        return movieList;
     }
 
-    public static BooksMenu getInstance(){
+    public static MoviesMenu getInstance(){
         if(me==null){
-            me  = new BooksMenu();
+            me  = new MoviesMenu();
         }
         return me;
     }
 
     @Override
     public void show() {
-        System.out.println(Utils.BOOKS_LISTING_GUIDE);
-        System.out.print(this.booklist.show());
+        System.out.println(Utils.MOVIES_LISTING_GUIDE);
+        System.out.print(this.movieList.show());
         System.out.println(Utils.OPTION_SELECTION_GUIDE);
         System.out.print(this.showOptions());
     }

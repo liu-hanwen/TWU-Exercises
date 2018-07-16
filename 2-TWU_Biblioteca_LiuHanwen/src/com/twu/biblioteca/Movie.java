@@ -31,6 +31,10 @@ public class Movie extends Checkable{
         return ret;
     }
 
+    public String getName(){
+        return info.get("name");
+    }
+
     public HashMap<String, String> getInfo() {
         return info;
     }

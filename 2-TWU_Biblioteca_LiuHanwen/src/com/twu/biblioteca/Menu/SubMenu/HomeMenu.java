@@ -18,6 +18,8 @@ public class HomeMenu extends BaseMenu {
         this.name = Utils.HOME_NAME;
         this.options = new ArrayList<BaseMenu>();
         this.options.add(BooksMenu.getInstance());
+        this.options.add(MoviesMenu.getInstance());
+        this.options.add(InfoMenu.getInstance());
         this.options.add(QuitOption.getInstance());
     }
 

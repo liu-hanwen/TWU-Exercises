@@ -30,7 +30,7 @@ public class BooksListingTest {
         list.add(book1);
         list.add(book2);
         list.add(book3);
-        book2.checkout();
+        book2.checkout(new User("1","1"));
         assertEquals("1.<book1>\tauthor1\t2018\n2.<book3>\tauthor3\t2011\n", list.show());
 
     }
